@@ -1,0 +1,19 @@
+body{
+    font-size: 1.2em;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+    display: none;
+}
+#list1, #list2{
+    float: left;
+}
+
+.warning{
+    font-style: italic;
+}
+.title{
+    background-color: #383838;
+}

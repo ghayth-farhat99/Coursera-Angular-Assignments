@@ -1,0 +1,74 @@
+<div class="container">
+<form name="signupForm" ng-submit="signUpCtrl.submit(signupForm)" novalidate>
+
+    <input type="text" name="firstname" placeholder="Pick a firstname"
+      ng-model="signUpCtrl.user.firstname"
+      required
+      minlength="4"
+      ng-maxlength="10">
+      {{ signUpCtrl.firstname }}
+      <span
+        ng-if="(signupForm.firstname.$error.minlength || signupForm.firstname.$error.required) && signupForm.firstname.$touched">
+        firstname must be at least 4 characters long
+      </span>
+      <span ng-if="signupForm.firstname.$error.maxlength && signupForm.firstname.$touched">
+        firstname must not be longer than 10 characters
+      </span>
+      <br>
+
+      <input type="text" name="lastname" placeholder="Pick a lastname"
+      ng-model="signUpCtrl.user.lastname"
+      required
+      minlength="4"
+      ng-maxlength="10">
+      {{ signUpCtrl.lastname }}
+      <span
+        ng-if="(signupForm.lastname.$error.minlength || signupForm.lastname.$error.required) && signupForm.lastname.$touched">
+        lastname must be at least 4 characters long
+      </span>
+      <span ng-if="signupForm.lastname.$error.maxlength && signupForm.lastname.$touched">
+        lastname must not be longer than 10 characters
+      </span>
+      <br>
+
+    <input type="email" name="email" placeholder="Email"
+      ng-model="signUpCtrl.user.email"
+      required>
+      <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+        Must be a valid email address: handle@domain format
+      </span>
+      <br>
+
+    <input type="text" name="phone" placeholder="Phone ##-###-###"
+      ng-model="signUpCtrl.user.phone"
+      pattern="(\d{2})-(\d{3})-(\d{3})" required>
+      <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+        Phone must be in the format ##-###-###.
+      </span>
+      <br>
+      
+    <input type="text" name="favoriteDish" placeholder="Pick a shortname"
+      ng-model="signUpCtrl.user.favoriteDish"
+      minlength="2"
+      ng-maxlength="3">
+      {{ signUpCtrl.shortname }}
+      <span
+        ng-if="(signupForm.shortname.$error.minlength || signupForm.shortname.$error.required) && signupForm.shortname.$touched">
+        shortname must be at least 2 characters long
+      </span>
+      <span ng-if="signupForm.shortname.$error.maxlength && signupForm.shortname.$touched">
+        shortname must not be longer than 3 characters
+      </span>
+      <span ng-show="signUpCtrl.showError" class="error">That dish doesn't exist.</span>
+      <br>
+    <button
+      ng-disabled="signupForm.$invalid"
+      ng-click="signUpCtrl.submit()">Submit</button>
+      <span class="text-success" ng-show="signUpCtrl.showMessage">You have signed up.</span>
+
+      <div style="margin-top: 10px;">
+        Form valid? {{ signupForm.$valid }}
+      </div>
+  </form>
+
+</div>

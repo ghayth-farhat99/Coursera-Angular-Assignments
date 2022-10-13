@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CalculatriceApp" >
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min..js"></script>
+    <script src="app.js"></script>
+    <style>body { font-size: 1.3em; }</style>
+    <title>Assignment</title>
+    <style>body{
+      background-image: url(menu.jpg);
+    }
+    </style>
+  </head>
+  <body>
+    <h1>assignment1</h1>
+    <div ng-controller="CalculatriceController" >
+      <input type="text"  ng-model="text1">
+      <br>
+      <button ng-click="test()">Check If Too Much</button>
+     
+      {{x}}
+
+      <h2>{{result}} </h2>
+      
+  </div>
+  </body>
+</html>
